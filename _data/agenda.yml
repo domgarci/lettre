@@ -1,17 +1,17 @@
 # Une entrée par événement. Champs : date (AAAA-MM-JJ), heure, titre, type, lieu, description, lien.
-# « type » colore la carte : Séminaire, Conférence, Médias, Soutenance...
+# « type » colore la carte : Assemblée générale, Rassemblement, Manifestation, Atelier...
 # Les événements passés basculent seuls dans la rubrique « Passé ».
 # Les deux entrées ci-dessous sont des EXEMPLES à remplacer.
 
-- date: 2026-12-12
-  heure: "14h – 17h"
-  titre: "Séminaire (exemple)"
-  type: Séminaire
-  lieu: "Université de Lille"
-  description: "Description courte de la séance."
+- date: 2026-12-03
+  heure: "12h – 14h"
+  titre: "Assemblée générale (exemple)"
+  type: Assemblée générale
+  lieu: "Lieu à préciser"
+  description: "Ordre du jour à compléter."
 
-- date: 2026-10-15
+- date: 2026-11-10
   heure: "18h"
-  titre: "Conférence (exemple)"
-  type: Conférence
-  lieu: "Lieu de la conférence"
+  titre: "Rassemblement (exemple)"
+  type: Rassemblement
+  lieu: "Lieu à préciser"
