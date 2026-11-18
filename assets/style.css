@@ -1,0 +1,42 @@
+:root {
+  --encre: #1f1f1f;
+  --gris: #5f5f5f;
+  --accent: #8a3b12;
+  --fond: #fbfaf7;
+  --filet: #e3dfd6;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--encre);
+  font: 18px/1.65 Georgia, "Times New Roman", serif;
+}
+main, .entete, .pied { max-width: 42rem; margin: 0 auto; padding: 0 1.25rem; }
+.entete {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline;
+  gap: .5rem; padding-top: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--filet);
+}
+.titre-site { font-weight: bold; color: var(--encre); text-decoration: none; }
+nav a { margin-left: 1rem; font-family: system-ui, sans-serif; font-size: .85rem; color: var(--gris); }
+a { color: var(--accent); }
+h1 { font-size: 1.9rem; line-height: 1.25; margin: 2rem 0 .5rem; }
+h2 { font-size: 1.3rem; margin-top: 2.25rem; }
+.date { font-family: system-ui, sans-serif; font-size: .8rem; color: var(--gris); letter-spacing: .03em; }
+.chapo { font-size: 1.1rem; color: var(--gris); font-style: italic; }
+.lettre img { max-width: 100%; height: auto; }
+.lettre blockquote { margin: 1.5rem 0; padding-left: 1rem; border-left: 3px solid var(--filet); color: var(--gris); }
+.encart-inscription {
+  margin: 2.5rem 0; padding: 1.25rem 1.5rem; background: #fff; border: 1px solid var(--filet); border-radius: 6px;
+}
+.encart-inscription h2 { margin-top: 0; }
+.bouton {
+  display: inline-block; padding: .55rem 1.1rem; background: var(--accent); color: #fff;
+  border-radius: 4px; text-decoration: none; font-family: system-ui, sans-serif; font-size: .95rem;
+}
+.petit { font-size: .85rem; color: var(--gris); }
+.liste-lettres { list-style: none; padding: 0; }
+.liste-lettres li { padding: .9rem 0; border-bottom: 1px solid var(--filet); }
+.liste-lettres li p { margin: .25rem 0 0; color: var(--gris); font-size: .95rem; }
+.liste-lettres a { font-size: 1.1rem; margin-left: .5rem; }
+.pied { margin-top: 3rem; padding-top: 1rem; padding-bottom: 2rem; border-top: 1px solid var(--filet); font-size: .85rem; color: var(--gris); }
