@@ -1,28 +1,25 @@
 ---
-title: "Premier numéro : une lettre hors des réseaux"
-chapo: "Pourquoi ouvrir un canal direct avec mes lectrices et lecteurs, et ce que vous y trouverez."
+title: "Premier numéro : pourquoi cette lettre"
+chapo: "Un canal direct, hors des réseaux sociaux, pour suivre la mobilisation."
 numero: 1
 # Passez à true pour que la lettre parte par courriel lors de l'enregistrement.
 envoyer: false
 ---
 
-Chères et chers collègues,
+Bonjour à toutes et à tous,
 
-Cette lettre inaugure un canal de communication indépendant des plateformes. Elle rassemblera, quelques fois par an, les publications récentes, les interventions publiques et les séminaires à venir.
+Cette lettre ouvre un canal de communication indépendant des plateformes. Elle rassemblera les communiqués, les comptes rendus d'assemblées et les rendez-vous de la mobilisation.
 
-## Publications récentes
+## Derniers communiqués
 
-- *Titre de l'article*, revue, année. [Lire en ligne](https://example.org)
-- *Titre du chapitre*, dans *Titre de l'ouvrage*, éditeur, année.
+- *Titre du communiqué (exemple)*, date. [Lire en ligne](https://example.org)
 
-## Agenda
+## Prochains rendez-vous
 
-**12 décembre 2026**, Université de Lille : séminaire « Géopolitique du goût ».
+**Date (exemple)** : assemblée générale, lieu à préciser.
 
-## Pour aller plus loin
+## À faire circuler
 
-> Une citation courte ou une piste de réflexion peut figurer ici.
+> Un appel, une citation ou une consigne courte peut figurer ici.
 
-Bien cordialement,
-
-Domingo Garcia Garza
+Le collectif Paris 7 En lutte
