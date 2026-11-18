@@ -41,10 +41,6 @@ def main():
     if not expediteur:
         sys.exit("Aucune adresse d'expéditeur : renseignez le secret EXPEDITEUR.")
 
-    destinataires = [expediteur] if args.test else liste_abonnes()
-    if not destinataires:
-        sys.exit("La liste des abonnés est vide : renseignez le secret ABONNES.")
-
     for chemin in args.fichiers:
         entete, corps = lire_lettre(chemin)
         entete["_chemin"] = chemin
@@ -54,6 +50,9 @@ def main():
         if args.avant and not (args.forcer or args.test) and deja_envoyee(chemin, args.avant):
             print(f"· {chemin} : déjà marquée « envoyer: true » avant cette modification, aucun nouvel envoi.")
             continue
+        destinataires = [expediteur] if args.test else liste_abonnes()
+        if not destinataires:
+            sys.exit("La liste des abonnés est vide : renseignez le secret ABONNES.")
 
         print(f"· {chemin} : {len(destinataires)} destinataire(s){' [TEST]' if args.test else ''}")
         if args.brouillon:
