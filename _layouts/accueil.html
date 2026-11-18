@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% seo %}
+  {% feed_meta %}
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body class="theme-accueil grain">
+  <main class="accueil">
+    <nav class="disques" aria-label="Navigation principale">
+      <a class="disque disque--ocre" href="{{ '/lettres/' | relative_url }}" style="--x:6%;--y:8%;--d:min(34vw,300px)"><span>Lettres</span></a>
+      <a class="disque disque--bleu" href="{{ '/publications/' | relative_url }}" style="--x:30%;--y:34%;--d:min(26vw,230px)"><span>Publications</span></a>
+      <a class="disque disque--rouge" href="{{ '/agenda/' | relative_url }}" style="--x:9%;--y:64%;--d:min(22vw,200px)"><span>Agenda</span></a>
+      <a class="disque disque--noir" href="{{ '/a-propos/' | relative_url }}" style="--x:80%;--y:6%;--d:min(17vw,150px)"><span>À propos</span></a>
+    </nav>
+    <div class="accueil-titre">
+      <h1>{{ site.title }}</h1>
+      <p>{{ site.description }}</p>
+      <p class="accueil-abonner"><a href="{{ '/a-propos/' | relative_url }}#inscription">Recevoir la lettre par courriel</a> · <a href="{{ '/feed.xml' | relative_url }}">RSS</a></p>
+    </div>
+  </main>
+</body>
+</html>
