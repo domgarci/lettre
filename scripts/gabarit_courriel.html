@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{SUJET}}</title>
+<style>
+  .corps a { color: #8a3b12; }
+  .corps h2 { font-size: 20px; margin: 28px 0 8px; }
+  .corps blockquote { margin: 16px 0; padding-left: 14px; border-left: 3px solid #e3dfd6; color: #5f5f5f; }
+  .corps img { max-width: 100%; height: auto; }
+</style>
+</head>
+<body style="margin:0;padding:0;background:#fbfaf7;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fbfaf7;">
+  <tr><td align="center" style="padding:24px 12px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;background:#ffffff;border:1px solid #e3dfd6;border-radius:6px;">
+      <tr><td style="padding:20px 28px;border-bottom:1px solid #e3dfd6;font-family:Arial,sans-serif;font-size:13px;color:#5f5f5f;">
+        <a href="{{URL_SITE}}" style="color:#1f1f1f;font-weight:bold;text-decoration:none;">{{TITRE_LETTRE}}</a>
+        &nbsp;·&nbsp;<a href="{{URL_LETTRE}}" style="color:#5f5f5f;">Lire en ligne</a>
+      </td></tr>
+      <tr><td class="corps" style="padding:8px 28px 24px;font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.6;color:#1f1f1f;">
+        <h1 style="font-size:26px;line-height:1.25;margin:20px 0 8px;">{{SUJET}}</h1>
+        {{CHAPO}}
+        {{CORPS}}
+      </td></tr>
+      <tr><td style="padding:16px 28px;border-top:1px solid #e3dfd6;font-family:Arial,sans-serif;font-size:12px;line-height:1.5;color:#5f5f5f;">
+        Vous recevez cette lettre parce que vous vous êtes inscrit·e auprès de {{AUTEUR}}.
+        Aucun traceur n'est utilisé.<br>
+        <a href="{{DESINSCRIPTION}}" style="color:#5f5f5f;">Se désinscrire</a> · <a href="{{URL_SITE}}" style="color:#5f5f5f;">Archives</a>
+      </td></tr>
+    </table>
+  </td></tr>
+</table>
+</body>
+</html>
