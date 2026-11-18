@@ -7,7 +7,7 @@ theme: nuit
 
 # À propos
 
-{{ site.author }}, maître de conférences HDR en études latino-américaines à l'Université de Lille. Travaux sur la sociologie du goût, la colonialité des pratiques culturelles, les marchés agroalimentaires et les spiritueux d'agave.
+{{ site.title }} est un espace d'échange pour la communauté mobilisée de Paris 7 : étudiantes et étudiants, personnels, enseignantes et enseignants. On y trouve les communiqués, les ressources partagées et l'agenda de la mobilisation, sans passer par les réseaux sociaux.
 
 <section id="inscription" class="encart">
   <h2>Recevoir la lettre</h2>
@@ -19,8 +19,6 @@ theme: nuit
 ## Contact
 
 Courriel : <a href="mailto:{{ site.email_contact }}">{{ site.email_contact }}</a>
-
-Université de Lille
 
 ## Suivre sans s'inscrire
 
