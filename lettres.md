@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Lettres
-permalink: /lettres/
+title: Ressources
+permalink: /ressources/
 theme: papier
 ---
 
-# Lettres
+# Ressources
 
-Chaque numéro de la lettre, dans l'ordre de parution. Pour les recevoir par courriel : [s'abonner]({{ '/a-propos/' | relative_url }}#inscription).
+Documents et numéros de la lettre, du plus récent au plus ancien. Pour les recevoir par courriel : [s'abonner]({{ '/a-propos/' | relative_url }}#inscription).
 
 <div class="vignettes">
 {% for lettre in site.posts %}
