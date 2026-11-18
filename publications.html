@@ -1,0 +1,41 @@
+---
+layout: default
+title: Publications
+permalink: /publications/
+theme: bleu
+---
+<h1>Publications</h1>
+<p>Articles, chapitres, ouvrages et interventions médiatiques. Les listes se complètent dans le fichier <code>_data/publications.yml</code>.</p>
+
+{% assign natures = site.data.publications | map: "nature" | uniq | sort %}
+<div class="filtres" role="group" aria-label="Filtrer par nature">
+  <button type="button" class="filtre actif" data-filtre="tout">Tout</button>
+  {% for n in natures %}<button type="button" class="filtre" data-filtre="{{ n | slugify }}">{{ n }}</button>{% endfor %}
+</div>
+
+<div class="vignettes">
+{% assign pubs = site.data.publications | sort: "annee" | reverse %}
+{% for p in pubs %}
+  <article class="vignette" data-nature="{{ p.nature | slugify }}">
+    <span class="vignette-meta">{{ p.nature }} · {{ p.annee }}{% if p.langue %} · {{ p.langue }}{% endif %}</span>
+    <strong>{% if p.lien %}<a href="{{ p.lien }}">{{ p.titre }}</a>{% else %}{{ p.titre }}{% endif %}</strong>
+    {% if p.support %}<span class="vignette-texte"><em>{{ p.support }}</em></span>{% endif %}
+    {% if p.themes %}<span class="etiquettes">{% for t in p.themes %}<span>{{ t }}</span>{% endfor %}</span>{% endif %}
+  </article>
+{% endfor %}
+</div>
+<p class="compteur"><span id="nb">{{ pubs.size }}</span> document(s)</p>
+
+<script>
+  document.querySelectorAll('.filtre').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = b.dataset.filtre, n = 0;
+      document.querySelectorAll('.filtre').forEach(function (x) { x.classList.toggle('actif', x === b); });
+      document.querySelectorAll('.vignette[data-nature]').forEach(function (v) {
+        var ok = f === 'tout' || v.dataset.nature === f;
+        v.hidden = !ok; if (ok) n++;
+      });
+      document.getElementById('nb').textContent = n;
+    });
+  });
+</script>
