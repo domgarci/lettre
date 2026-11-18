@@ -1,5 +1,6 @@
 ---
 layout: default
+theme: papier
 ---
 <article class="lettre">
   <p class="date">{{ page.date | date: "%d/%m/%Y" }}{% if page.numero %} · Lettre n° {{ page.numero }}{% endif %}</p>
@@ -8,8 +9,9 @@ layout: default
   {{ content }}
 </article>
 
-<section class="encart-inscription">
+<section class="encart">
   <p>Pour recevoir les prochaines lettres par courriel :
-    <a class="bouton" href="mailto:{{ site.email_contact }}?subject=Inscription%20%C3%A0%20la%20lettre&amp;body=Je%20souhaite%20recevoir%20la%20lettre%20d%27information%20%C3%A0%20cette%20adresse.">s'abonner</a>
+    <a class="bouton" href="{{ '/a-propos/' | relative_url }}#inscription">s'abonner</a>
+    · <a href="{{ '/lettres/' | relative_url }}">toutes les lettres</a>
   </p>
 </section>
