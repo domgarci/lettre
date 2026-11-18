@@ -1,25 +1,22 @@
-# Une entrée par publication. Champs : titre, nature, annee, support, lien, langue, themes.
-# « nature » sert aux filtres de la page : Article, Chapitre, Ouvrage, Entretien, Presse...
+# Une entrée par document. Champs : titre, nature, annee, support, lien, langue, themes.
+# « nature » sert aux filtres de la page : Communiqué, Tract, Presse, Motion...
 # Les trois entrées ci-dessous sont des EXEMPLES à remplacer.
 
-- titre: "Titre de l'article (exemple)"
-  nature: Article
+- titre: "Communiqué (exemple)"
+  nature: Communiqué
   annee: 2026
-  support: "Nom de la revue, vol., n°, pages"
-  langue: FR
+  support: "Adopté en assemblée générale"
   lien: "https://example.org"
-  themes: [Sociologie du goût, Mezcal]
+  themes: [Moyens, Conditions d'étude]
 
-- titre: "Titre du chapitre (exemple)"
-  nature: Chapitre
-  annee: 2025
-  support: "Titre de l'ouvrage collectif, éditeur"
-  langue: ES
-  themes: [Colonialité]
+- titre: "Tract (exemple)"
+  nature: Tract
+  annee: 2026
+  support: "Distribué sur le campus"
+  themes: [Mobilisation]
 
-- titre: "Titre de l'entretien (exemple)"
+- titre: "Article de presse (exemple)"
   nature: Presse
-  annee: 2025
+  annee: 2026
   support: "Nom du média"
-  langue: FR
-  themes: [Tequila, Marchés]
+  themes: [Revue de presse]
