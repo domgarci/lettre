@@ -1,0 +1,79 @@
+name: Envoi de la lettre
+
+on:
+  # Envoi automatique : toute nouvelle lettre ajoutée dans _posts/ avec « envoyer: true ».
+  push:
+    branches: [main]
+    paths: ["_posts/**"]
+  # Envoi manuel depuis l'onglet Actions (test ou envoi réel).
+  workflow_dispatch:
+    inputs:
+      fichier:
+        description: "Chemin de la lettre (ex. _posts/2026-11-18-premiere-lettre.md)"
+        required: true
+      mode:
+        description: "test = envoi à vous seul ; envoi = tous les abonnés"
+        type: choice
+        options: [test, envoi]
+        default: test
+
+permissions:
+  contents: read
+
+concurrency:
+  group: envoi-lettre
+  cancel-in-progress: false
+
+jobs:
+  envoyer:
+    runs-on: ubuntu-latest
+    env:
+      SMTP_HOTE: ${{ secrets.SMTP_HOTE }}
+      SMTP_PORT: ${{ secrets.SMTP_PORT }}
+      SMTP_UTILISATEUR: ${{ secrets.SMTP_UTILISATEUR }}
+      SMTP_MOT_DE_PASSE: ${{ secrets.SMTP_MOT_DE_PASSE }}
+      EXPEDITEUR: ${{ secrets.EXPEDITEUR }}
+      NOM_EXPEDITEUR: ${{ secrets.NOM_EXPEDITEUR }}
+      ABONNES: ${{ secrets.ABONNES }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer les dépendances
+        run: pip install -r scripts/requirements.txt
+
+      - name: Repérer les nouvelles lettres
+        id: lettres
+        if: github.event_name == 'push'
+        env:
+          AVANT: ${{ github.event.before }}
+        run: |
+          # Commit précédant la poussée (ou racine vide pour une première poussée).
+          if [ -z "$AVANT" ] || ! git cat-file -e "$AVANT^{commit}" 2>/dev/null; then
+            AVANT=$(git hash-object -t tree /dev/null)
+          fi
+          fichiers=$(git diff --name-only --diff-filter=AM "$AVANT" HEAD -- '_posts/*.md' '_posts/*.markdown' | tr '\n' ' ')
+          echo "Lettres ajoutées ou modifiées : ${fichiers:-aucune}"
+          echo "fichiers=$fichiers" >> "$GITHUB_OUTPUT"
+          echo "avant=$AVANT" >> "$GITHUB_OUTPUT"
+
+      - name: Envoyer les lettres prêtes
+        if: github.event_name == 'push' && steps.lettres.outputs.fichiers != ''
+        run: python scripts/envoyer_lettre.py --avant "${{ steps.lettres.outputs.avant }}" ${{ steps.lettres.outputs.fichiers }}
+
+      - name: Envoyer (déclenchement manuel)
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          FICHIER: ${{ inputs.fichier }}
+          MODE: ${{ inputs.mode }}
+        run: |
+          if [ "$MODE" = "test" ]; then
+            python scripts/envoyer_lettre.py "$FICHIER" --test
+          else
+            python scripts/envoyer_lettre.py "$FICHIER" --forcer
+          fi
