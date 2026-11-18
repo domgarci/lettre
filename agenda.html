@@ -5,7 +5,7 @@ permalink: /agenda/
 theme: ocre
 ---
 <h1>Agenda</h1>
-<p>Séminaires, conférences, soutenances et passages dans les médias. Les dates se complètent dans le fichier <code>_data/agenda.yml</code>.</p>
+<p>Assemblées générales, rassemblements, manifestations et ateliers. Les dates se complètent dans le fichier <code>_data/agenda.yml</code>.</p>
 
 <h2>À venir</h2>
 <div id="a-venir" class="agenda"></div>
@@ -15,7 +15,7 @@ theme: ocre
 <div id="passe" class="agenda">
 {% assign evts = site.data.agenda | sort: "date" %}
 {% for e in evts %}
-  <article class="evenement evenement--{{ e.type | slugify }}" data-date="{{ e.date }}">
+  <article class="evenement evenement--{{ e.type | slugify: "latin" }}" data-date="{{ e.date }}">
     <div class="evenement-date">
       <span class="jour">{{ e.date | date: "%d" }}</span>
       <span class="mois">{{ e.date | date: "%m/%Y" }}</span>
