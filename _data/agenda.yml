@@ -1,0 +1,17 @@
+# Une entrée par événement. Champs : date (AAAA-MM-JJ), heure, titre, type, lieu, description, lien.
+# « type » colore la carte : Séminaire, Conférence, Médias, Soutenance...
+# Les événements passés basculent seuls dans la rubrique « Passé ».
+# Les deux entrées ci-dessous sont des EXEMPLES à remplacer.
+
+- date: 2026-12-12
+  heure: "14h – 17h"
+  titre: "Séminaire (exemple)"
+  type: Séminaire
+  lieu: "Université de Lille"
+  description: "Description courte de la séance."
+
+- date: 2026-10-15
+  heure: "18h"
+  titre: "Conférence (exemple)"
+  type: Conférence
+  lieu: "Lieu de la conférence"
