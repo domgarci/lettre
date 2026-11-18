@@ -7,20 +7,21 @@
   {% feed_meta %}
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
 </head>
-<body>
-  <header class="entete">
-    <a class="titre-site" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+<body class="theme-{{ page.theme | default: 'papier' }} grain">
+  <header class="bandeau">
     <nav>
-      <a href="{{ '/' | relative_url }}#archives">Archives</a>
-      <a href="{{ '/' | relative_url }}#inscription">S'abonner</a>
-      <a href="{{ '/feed.xml' | relative_url }}">Flux RSS</a>
+      <a href="{{ '/lettres/' | relative_url }}">Lettres</a>
+      <a href="{{ '/publications/' | relative_url }}">Publications</a>
+      <a href="{{ '/agenda/' | relative_url }}">Agenda</a>
+      <a href="{{ '/a-propos/' | relative_url }}">À propos</a>
     </nav>
+    <a class="pastille" href="{{ '/' | relative_url }}" title="Accueil"><span>Accueil</span></a>
   </header>
-  <main>
+  <main class="contenu">
     {{ content }}
   </main>
   <footer class="pied">
-    <p>{{ site.author }} · <a href="{{ '/confidentialite/' | relative_url }}">Données personnelles</a> · <a href="{{ '/feed.xml' | relative_url }}">RSS</a></p>
+    <p>{{ site.author }} · <a href="{{ '/a-propos/' | relative_url }}#inscription">S'abonner</a> · <a href="{{ '/confidentialite/' | relative_url }}">Données personnelles</a> · <a href="{{ '/feed.xml' | relative_url }}">RSS</a></p>
   </footer>
 </body>
 </html>
