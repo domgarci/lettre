@@ -1,0 +1,44 @@
+---
+layout: default
+title: Agenda
+permalink: /agenda/
+theme: ocre
+---
+<h1>Agenda</h1>
+<p>Séminaires, conférences, soutenances et passages dans les médias. Les dates se complètent dans le fichier <code>_data/agenda.yml</code>.</p>
+
+<h2>À venir</h2>
+<div id="a-venir" class="agenda"></div>
+<p id="rien" class="petit" hidden>Aucune date annoncée pour le moment.</p>
+
+<h2>Passé</h2>
+<div id="passe" class="agenda">
+{% assign evts = site.data.agenda | sort: "date" %}
+{% for e in evts %}
+  <article class="evenement evenement--{{ e.type | slugify }}" data-date="{{ e.date }}">
+    <div class="evenement-date">
+      <span class="jour">{{ e.date | date: "%d" }}</span>
+      <span class="mois">{{ e.date | date: "%m/%Y" }}</span>
+    </div>
+    <div>
+      <span class="vignette-meta">{{ e.type }}{% if e.heure %} · {{ e.heure }}{% endif %}</span>
+      <strong>{% if e.lien %}<a href="{{ e.lien }}">{{ e.titre }}</a>{% else %}{{ e.titre }}{% endif %}</strong>
+      {% if e.lieu %}<span class="vignette-texte">{{ e.lieu }}</span>{% endif %}
+      {% if e.description %}<p>{{ e.description }}</p>{% endif %}
+    </div>
+  </article>
+{% endfor %}
+</div>
+
+<script>
+  (function () {
+    var aujourdhui = new Date().toISOString().slice(0, 10);
+    var venir = document.getElementById('a-venir'), passe = document.getElementById('passe');
+    Array.from(passe.children).forEach(function (e) {
+      if (e.dataset.date >= aujourdhui) venir.appendChild(e);
+    });
+    var anciens = Array.from(passe.children).reverse();
+    anciens.forEach(function (e) { passe.appendChild(e); });
+    document.getElementById('rien').hidden = venir.children.length > 0;
+  })();
+</script>
