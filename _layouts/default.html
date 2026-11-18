@@ -21,7 +21,7 @@
     {{ content }}
   </main>
   <footer class="pied">
-    <p>{{ site.author }} · <a href="{{ '/a-propos/' | relative_url }}#inscription">S'abonner</a> · <a href="{{ '/confidentialite/' | relative_url }}">Données personnelles</a> · <a href="{{ '/feed.xml' | relative_url }}">RSS</a></p>
+    <p>{{ site.author }} · <a href="mailto:{{ site.email_contact }}">{{ site.email_contact }}</a> · <a href="{{ '/a-propos/' | relative_url }}#inscription">S'abonner</a> · <a href="{{ '/confidentialite/' | relative_url }}">Données personnelles</a> · <a href="{{ '/feed.xml' | relative_url }}">RSS</a></p>
   </footer>
 </body>
 </html>
